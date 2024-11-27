@@ -6,7 +6,7 @@
 /*   By: eschmitz <eschmitz@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 13:03:29 by eschmitz          #+#    #+#             */
-/*   Updated: 2024/10/15 13:25:44 by eschmitz         ###   ########.fr       */
+/*   Updated: 2024/11/26 15:12:08 by eschmitz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ int	check_death(t_philo *philo)
 	time = get_time() - philo->meal;
 	if (time >= philo->parameters->time_to_die && !philo->parameters->over)
 	{
-		pthread_mutex_unlock(philo->parameters->death);
 		pthread_mutex_lock(philo->parameters->print_m);
 		printf("%ldms Philosopher %d died\n",
 			get_time() - philo->thread_start, philo->id);
 		philo->parameters->over = 1;
 		philo->dead = 1;
 		pthread_mutex_unlock(philo->parameters->print_m);
+		pthread_mutex_unlock(philo->parameters->death);
 		return (1);
 	}
 	pthread_mutex_unlock(philo->parameters->death);

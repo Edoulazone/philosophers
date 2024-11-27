@@ -6,7 +6,7 @@
 /*   By: eschmitz <eschmitz@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 19:12:25 by eschmitz          #+#    #+#             */
-/*   Updated: 2024/10/22 15:49:14 by eschmitz         ###   ########.fr       */
+/*   Updated: 2024/11/26 15:12:12 by eschmitz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ static int	initialise_thread(t_params *param, t_philo *philo)
 		philo[i].right_fork = philo[(i + 1) % param->num_of_philos].left_fork;
 		if (pthread_create(&philo[i].life_tid, NULL,
 				&thread_routine, &philo[i]) == -1)
-			return (error_msg("Error: Failed to create thread\n", param, philo, 1));
+			return (error_msg("Error: Failed to create thread\n",
+					param, philo, 1));
 	}
 	i = -1;
 	param->start = get_time();
