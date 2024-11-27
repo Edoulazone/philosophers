@@ -1,1 +1,1 @@
-![bigbrain](https://github.com/Edoulazone/gifs/blob/master/brainexplosion.gif)
+![bigbrain](https://github.com/Edoulazone/gifs/blob/master/brain_explosion.gif)
